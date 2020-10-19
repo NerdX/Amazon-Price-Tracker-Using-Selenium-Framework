@@ -1,0 +1,9 @@
+Steps involved are:-
+
+Step 1: Run the browser(google chrome).
+Step 2: Go to the amazon website.
+Step 3: Look for our items links(scrape).
+Step 4: Put the search bar name of items we are looking for (ps4, xbox 360, etc).
+Step 5: Go through multiple pages (scrape the whole product on the list and get all links).
+Step 6: Loop through each link, and get all the data from each product  and store it in memory.
+Step 7: Create report based on the data.
