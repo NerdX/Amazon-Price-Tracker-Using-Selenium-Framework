@@ -2,10 +2,10 @@ from selenium import webdriver
 
 # GLOBAL - STATIC VARIABLES:
 DIRECTORY = "C:\\Users\\Anjaniy\\PycharmProjects\\AmazonPriceTracker\\reports"
-NAME = "playstation 4 pro"
+NAME = str(input('Which Product Do You Wish To Look For ? \n'))
 CURRENCY = '€'
-MIN_PRICE = '300'
-MAX_PRICE = '650'
+MIN_PRICE = str(input('What Should Be The Minimum Price In € ? \n'))
+MAX_PRICE = str(input('What Should Be The Maximum Price In € ? \n'))
 FILTERS = {
     'min': MIN_PRICE,
     'max': MAX_PRICE
