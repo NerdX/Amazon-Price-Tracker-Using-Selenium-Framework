@@ -1,5 +1,6 @@
 import json
 import time
+import smtplib
 from datetime import datetime
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
@@ -83,7 +84,7 @@ class AmazonAPI:
         price = self.get_price()
         ratings = self.get_ratings()
 
-        if title and seller and price:
+        if title and seller and price and ratings:
             product_info = {
                 'asin': asin,
                 'url': product_short_url,
@@ -185,6 +186,7 @@ class GenerateReport:
         print("Creating Report...")
         with open(f'{DIRECTORY}/{file_name}.json', 'w') as f:
             json.dump(report, f)
+        self.send_email()
         print("Done...")
 
     @staticmethod
@@ -199,6 +201,13 @@ class GenerateReport:
             print(e)
             print("Problem With Sorting Items.")
             return None
+
+    def send_email(self):
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.login('nerdx01salekar@gmail.com', 'nerdx@12345')
+        server.sendmail('nerdx01salekar@gmail.com', 'anjaniy01salekar@gmail.com', f'{self.file_name}.json')
 
 
 if __name__ == '__main__':
